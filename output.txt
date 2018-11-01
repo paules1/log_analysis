@@ -1,0 +1,30 @@
+[1] What are the most popular three articles of all time?
+[2] Who are the most popular article authors of all time?
+[3] On which days did more than 1% of requests lead to errors?
+[q] Enter q to quit
+
+What would you like to view?
+
+[1] What are the most popular three articles of all time?
+
+ 1  |   338647 views | Candidate is jerk, alleges rival
+ 2  |   253801 views | Bears love berries, alleges bear
+ 3  |   170098 views | Bad things gone, say good people
+ 4  |    84906 views | Goats eat Google's lawn
+ 5  |    84810 views | Trouble for troubled troublemakers
+ 6  |    84557 views | Balloon goons doomed
+ 7  |    84504 views | There are a lot of bears
+ 8  |    84383 views | Media obsessed with bears
+
+
+ [2] Who are the most popular article authors of all time?
+
+ 1  |   507594 views | Ursula La Multa
+ 2  |   423457 views | Rudolf von Treppenwitz
+ 3  |   170098 views | Anonymous Contributor
+ 4  |    84557 views | Markoff Chaney
+
+
+ [3] On which days did more than 1% of requests lead to errors?
+
+ 2016-07-17 | 2.26%
