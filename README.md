@@ -1,25 +1,29 @@
 # Log Analysis Project
 
-The project consist on creating a _python_ program which will be used to get and render the results of the analysis of a news web site log. The program first renders a menu of options for the user:
-* Favorite articles
-* Favorite authors
-* Days on which a significant number of errors occurred while processing web requests.
+The project consist on creating a _python_ program which will be used to get and render the results of the analysis of a news web site log. The size of the log table is around 1.6 million records. 
 
-The size of the log table is around 1.6 million records.   
+_Running the program_ :
+```
+python database.py
+```
+**Description**
 
-### Files
+The program first renders a menu of options for the user. By selecting the option, the program will execute a query on the db and renders the results.
+
+**Files**
 * database.py - Main script
-* output.txt - Plain text file containing a copy of what your program prints out.
+* output.txt - Plain text file containing a copy of what the program prints out.
 
 
 
-### Database
+**Database Updates**
+
 A new view was created on the database. The view produces a result set with 2 columns representing the number of views by article:
 
 * article_slug
 * counter
 
-The _article_slug_ field is used as unique identifier of the article and used as the _reference key_ to join with articles table.
+The _article_slug_ field is used as unique article identifier for joins.
 ```
 create view
 view_articles_stats as
@@ -33,7 +37,7 @@ view_articles_stats as
   order by counter desc
 ```
 
-#### Project Status
+**Project Status**
 ```
-Submitted.
+Submitted
 ```
