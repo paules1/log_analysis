@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
 import psycopg2
-import datetime
 
 DB_NAME = 'news'
 
