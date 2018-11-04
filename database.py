@@ -60,10 +60,10 @@ def error_stats():
             date(time) as time,
             count(case when status!='200 OK' then 1 end) as count_error,
             count(*) as counter ,
-            ROUND(CAST(count(case when status!='200 OK' then 1 end)/count(*)::float*100 as numeric),2) as percent
+            ROUND(count(case when status!='200 OK' then 1 end)/(count(*)*1.0)*100,2) as percent
             from log
             group by date(time)
-            having count(case when status!='200 OK' then 1 end)/count(*)::float>0.01;'''
+            having count(case when status!='200 OK' then 1 end)/(count(*)*1.0)>0.01;'''
     return execute_query(query)
 
 
