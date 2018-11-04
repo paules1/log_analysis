@@ -64,14 +64,14 @@ def error_stats():
             COUNT(case when status!='200 OK' then 1 end) as count_error,
             COUNT(*) as counter ,
             ROUND(
-                count(case when status!='200 OK' then 1 end)/(count(*)*1.0)*100
+                COUNT(case when status!='200 OK' then 1 end)/(COUNT(*)*1.0)*100
                 ,2
             ) as percent
         FROM log
         GROUP BY DATE(time)
         HAVING
-              count(case when status!='200 OK' then 1 end)
-              /(count(*)*1.0)>0.01;'''
+              COUNT(case when status!='200 OK' then 1 end)
+              /(COUNT(*)*1.0)>0.01;'''
     return execute_query(query)
 
 
