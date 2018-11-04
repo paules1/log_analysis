@@ -33,37 +33,45 @@ def execute_query(query):
 
 
 def popular_articles():
-    query = '''select
+    query = '''
+        SELECT
             articles.id,
             articles.title,
             stats.counter
-            from view_articles_stats as stats
-            left join articles on articles.slug = stats.article_slug;'''
+        FROM view_articles_stats as stats
+        LEFT JOIN articles on articles.slug = stats.article_slug;'''
     return execute_query(query)
 
 
 def popular_authors():
-    query = '''select
+    query = '''
+        SELECT
             authors.id,
             authors.name,
-            sum(stats.counter) as counter
-            from view_articles_stats as stats
-            left join articles on articles.slug = stats.article_slug
-            left join authors on articles.author = authors.id
-            group by authors.id, authors.name
-            order by counter desc;'''
+            SUM(stats.counter) as counter
+        FROM view_articles_stats as stats
+        LEFT JOIN articles on articles.slug = stats.article_slug
+        LEFT JOIN authors on articles.author = authors.id
+        GROUP BY authors.id, authors.name
+        ORDER BY counter desc;'''
     return execute_query(query)
 
 
 def error_stats():
-    query = '''select
-            date(time) as time,
-            count(case when status!='200 OK' then 1 end) as count_error,
-            count(*) as counter ,
-            ROUND(count(case when status!='200 OK' then 1 end)/(count(*)*1.0)*100,2) as percent
-            from log
-            group by date(time)
-            having count(case when status!='200 OK' then 1 end)/(count(*)*1.0)>0.01;'''
+    query = '''
+        SELECT
+            DATE(time) as time,
+            COUNT(case when status!='200 OK' then 1 end) as count_error,
+            COUNT(*) as counter ,
+            ROUND(
+                count(case when status!='200 OK' then 1 end)/(count(*)*1.0)*100
+                ,2
+            ) as percent
+        FROM log
+        GROUP BY DATE(time)
+        HAVING
+              count(case when status!='200 OK' then 1 end)
+              /(count(*)*1.0)>0.01;'''
     return execute_query(query)
 
 
