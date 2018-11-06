@@ -5,11 +5,11 @@ The project consist on creating a _python_ program which will be used to get and
 #### Installation
 
 If you are using MacOS or Windows, you can use <a href="https://www.vagrantup.com/downloads.html">Vagrant</a>
-and <a href="https://www.virtualbox.org/">Virtual Box</a> to setup a local Linux environment,
+and <a href="https://www.virtualbox.org/">Virtual Box</a> to setup a local Linux environment.
 Follow the instructions according to your operating system and complete Vagrant and Virtual Box installations.
     
 Open a terminal or command prompt window in you computer and move to the folder on which you'll
-be installing the program. Then execute these 3 commands:
+be setting up the linux virtual box. Then execute these 3 commands:
  ```
 $ vagrant init bento/ubuntu-16.04
 $ vagrant up
@@ -40,7 +40,7 @@ $ git remote rm origin
 $ psql -d news -a -f view.sql
 ```
 
-_Running the program_ : Make sure you are located in the log_analysis folder then execute 
+_Running the program_ :  
 
 ```
 $ python database.py
